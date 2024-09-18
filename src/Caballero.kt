@@ -1,28 +1,40 @@
 class Caballero(
-    nombreInicial: String,
-    funcionInicial: String,
-    saludInicial: Int
-) : Personaje() {
 
-    override var nombre: String = nombreInicial
-        get() = field
-        set(value) {
-            field = value
-        }
+    override var nombre: String = "Desconocido",
+    override var funcion: String = "Sir",
+    override var salud: Int = 900,
+    override var daño: Int = 27
 
-    override var funcion: String = funcionInicial
-        get() = field
-        set(value) {
-            field = value
-        }
+) : Atributos(), Acciones {
 
-    override var salud: Int = saludInicial
-        get() = field
-        set(value) {
-            field = value
-        }
-
-    override fun atacar(): String {
-        return "$nombre ataca con su espada"
+    init {
+        println("----Acciones----")
     }
+
+    override fun atacar() { // heredado de "Acciones"
+
+        var estocada = "ha lanzado una estocada."
+        println("$funcion $nombre $estocada")
+    }
+
+    override fun defender() { // heredado de "Acciones"
+
+        var escudo = "ha levantado el escudo."
+        println("$funcion $nombre $escudo")
+    }
+
+    override fun descansar() {
+        super.descansar()
+    }
+
+    fun mostrarDatos (){
+
+        println("Datos del Caballero")
+        println("Nombre: $nombre")
+        println("Funcion: $funcion")
+        println("Salud: $salud")
+        println("Daño: $daño")
+
+    }
+
 }
